@@ -1,26 +1,96 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  color-scheme: light;
+  --app-bg: radial-gradient(1200px 700px at 10% -10%, #ffe7c4 0%, transparent 60%),
+    radial-gradient(900px 600px at 90% 10%, #c8f1f0 0%, transparent 60%),
+    #f6f2ea;
+  --surface: #ffffff;
+  --surface-2: #f2ede4;
+  --surface-3: #e8e2d6;
+  --ink: #1c1a16;
+  --muted: #5d5a53;
+  --accent: #0a7c76;
+  --accent-strong: #055752;
+  --stroke: rgba(20, 16, 10, 0.12);
+  --shadow: 0 25px 60px -45px rgba(18, 16, 12, 0.5);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    color-scheme: dark;
+    --app-bg: radial-gradient(1200px 700px at 10% -10%, #1f2a38 0%, transparent 60%),
+      radial-gradient(800px 500px at 90% 20%, #12383a 0%, transparent 60%),
+      #0c1014;
+    --surface: #12161a;
+    --surface-2: #1b2228;
+    --surface-3: #252d35;
+    --ink: #f3f1ea;
+    --muted: #b5b0a6;
+    --accent: #6fe2d3;
+    --accent-strong: #b6f5ea;
+    --stroke: rgba(246, 240, 230, 0.12);
+    --shadow: 0 25px 60px -45px rgba(0, 0, 0, 0.7);
   }
 }
 
+[data-theme="light"] {
+  color-scheme: light;
+  --app-bg: radial-gradient(1200px 700px at 10% -10%, #ffe7c4 0%, transparent 60%),
+    radial-gradient(900px 600px at 90% 10%, #c8f1f0 0%, transparent 60%),
+    #f6f2ea;
+  --surface: #ffffff;
+  --surface-2: #f2ede4;
+  --surface-3: #e8e2d6;
+  --ink: #1c1a16;
+  --muted: #5d5a53;
+  --accent: #0a7c76;
+  --accent-strong: #055752;
+  --stroke: rgba(20, 16, 10, 0.12);
+  --shadow: 0 25px 60px -45px rgba(18, 16, 12, 0.5);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --app-bg: radial-gradient(1200px 700px at 10% -10%, #1f2a38 0%, transparent 60%),
+    radial-gradient(800px 500px at 90% 20%, #12383a 0%, transparent 60%),
+    #0c1014;
+  --surface: #12161a;
+  --surface-2: #1b2228;
+  --surface-3: #252d35;
+  --ink: #f3f1ea;
+  --muted: #b5b0a6;
+  --accent: #6fe2d3;
+  --accent-strong: #b6f5ea;
+  --stroke: rgba(246, 240, 230, 0.12);
+  --shadow: 0 25px 60px -45px rgba(0, 0, 0, 0.7);
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100%;
+  background: var(--app-bg);
+  color: var(--ink);
+  font-family: var(--font-body), "Trebuchet MS", "Verdana", sans-serif;
+}
+
+h1,
+h2,
+h3,
+.display {
+  font-family: var(--font-display), "Georgia", serif;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+::selection {
+  background: rgba(10, 124, 118, 0.2);
 }
